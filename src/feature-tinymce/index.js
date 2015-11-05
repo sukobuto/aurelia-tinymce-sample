@@ -1,5 +1,5 @@
 import tinymce from "tinymce";
-import request from "superagent";
+import superagent from "superagent";
 
 export function configure(aurelia) {
 	aurelia.globalResources('./tiny-mce');
@@ -9,7 +9,14 @@ export function configure(aurelia) {
 
 		function upload() {
 			let file_field = document.querySelector('#mce-image-upload-file');
-			request.post('/api/upload')
+			let request = superagent.post('/api/upload');
+			if (editor.hasOwnProperty('insert_image_params')) {
+				for (var prop in editor.insert_image_params) {
+					if (editor.insert_image_params.hasOwnProperty(prop))
+						request.field(prop, editor.insert_image_params[prop]);
+				}
+			}
+			request
 				.attach("file", file_field.files[0], file_field.value)
 				.on('progress', evt => {
 					console.debug(evt.percent);

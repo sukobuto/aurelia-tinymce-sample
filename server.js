@@ -21,7 +21,10 @@ app.use(serveStatic('.'));
 let onUpload = async function(req, res) {
 	let file = req.file;
 	let extension = path.extname(file.originalname);
+	console.log(">>> uploaded...");
 	console.log(req.file);
+	console.log(">>> params...");
+	console.log(req.body);
 
 	// append extension to filename.
 	await prominence(fs).rename(file.path, file.path + extension);

@@ -14,17 +14,21 @@ export class TinyMce {
 	@bindable contextmenu = "copy paste | link image inserttable | cell row column deletetable";
 	@bindable statusbar = false;
 	@bindable language = 'ja';
+	@bindable insert_image_params = {};
 
 	editor_id = null;
 	editor = null;
 
 	constructor(observerLocator) {
 		this.editor_id = "tiny-mce-" + uuid.v4();
-		this.value_subscription = observerLocator
-			.getObserver(this, 'value')
-			.subscribe((newValue, oldValue) => {
-				if (this.editor) this.editor.setContent(newValue);
-			});
+		this.subscriptions = [
+			observerLocator
+					.getObserver(this, 'value')
+					.subscribe(newValue => this.editor && this.editor.setContent(newValue)),
+			observerLocator
+					.getObserver(this, 'insert_image_params')
+					.subscribe(newValue => this.editor && (this.editor.insert_image_params = newValue))
+		];
 	}
 
 	attached() {
@@ -52,6 +56,7 @@ export class TinyMce {
 				editor.on('change redo undo', e => {
 					this.value = editor.getContent();
 				});
+				editor.insert_image_params = this.insert_image_params;
 			}
 		});
 		window.tmce = this;
