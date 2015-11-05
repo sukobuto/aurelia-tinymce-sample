@@ -4,6 +4,8 @@ The sample application with Aurelia and TinyMCE
 
 You can see how to insert images into by your own TinyMCE plugin. 
 
+[DEMO](http://aurelia-tinymce-sample.sukobuto.com/)
+
 ## Running The App
 
 To run the app, follow these steps.
