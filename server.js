@@ -5,6 +5,8 @@ import multer from "multer"
 import path from "path"
 import fs from "fs"
 import prominence from "prominence"
+import cron from "cron"
+import Rx from "rxjs-fs"
 
 let app = express();
 let port = 3000;
@@ -20,7 +22,7 @@ app.use(serveStatic('.'));
 
 let onUpload = async function(req, res) {
 	let file = req.file;
-	let extension = path.extname(file.originalname);
+	let extension = path.extname(file.originalname).toLowerCase();
 	console.log(">>> uploaded...");
 	console.log(req.file);
 	console.log(">>> params...");
@@ -38,4 +40,10 @@ app.post('/api/upload', upload.single('file'), onUpload);
 
 app.listen(port, () => {
 	console.log("listening http on port " + port)
+});
+
+// to continue demonstration...
+cron.job('0 0 * * * *', () => {
+	console.log("clean uploads...");
+	Rx.fs.ls('uploads').filter(x => x.extension !== '.gitkeep').forEach(x => fs.unlink(x.path));
 });
