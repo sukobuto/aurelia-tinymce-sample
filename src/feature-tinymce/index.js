@@ -10,10 +10,10 @@ export function configure(aurelia) {
 		function upload() {
 			let file_field = document.querySelector('#mce-image-upload-file');
 			let request = superagent.post('/api/upload');
-			if (editor.hasOwnProperty('insert_image_params')) {
-				for (var prop in editor.insert_image_params) {
-					if (editor.insert_image_params.hasOwnProperty(prop))
-						request.field(prop, editor.insert_image_params[prop]);
+			if (editor.hasOwnProperty('insertImageParams')) {
+				for (var prop in editor.insertImageParams) {
+					if (editor.insertImageParams.hasOwnProperty(prop))
+						request.field(prop, editor.insertImageParams[prop]);
 				}
 			}
 			request

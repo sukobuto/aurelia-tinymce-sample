@@ -6,15 +6,19 @@ import uuid from "uuid";
 @inject(ObserverLocator)
 export class TinyMce {
 
+	/*
+	  bindable properties of tiny-mce custom element.
+	  camelCase properties are presented as snake-case attributes on the view.
+	 */
 	@bindable value = "";
 	@bindable height = 250;
-	@bindable convert_urls = false;
-	@bindable menubar = false;
-	@bindable toolbar = "undo redo | styleselect | bold forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link plugin_sample insert_image";
-	@bindable contextmenu = "copy paste | link image inserttable | cell row column deletetable";
-	@bindable statusbar = false;
+	@bindable convertUrls = false;	// i.e. convert-urls.bind="true"
+	@bindable menuBar = false;
+	@bindable toolBar = "undo redo | styleselect | bold forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link plugin_sample insert_image";
+	@bindable contextMenu = "copy paste | link image inserttable | cell row column deletetable";
+	@bindable statusBar = false;
 	@bindable language = 'ja';
-	@bindable insert_image_params = {};
+	@bindable insertImageParams = {};
 
 	editor_id = null;
 	editor = null;
@@ -26,8 +30,8 @@ export class TinyMce {
 					.getObserver(this, 'value')
 					.subscribe(newValue => this.editor && this.editor.setContent(newValue)),
 			observerLocator
-					.getObserver(this, 'insert_image_params')
-					.subscribe(newValue => this.editor && (this.editor.insert_image_params = newValue))
+					.getObserver(this, 'insertImageParams')
+					.subscribe(newValue => this.editor && (this.editor.insertImageParams = newValue))
 		];
 	}
 
@@ -41,13 +45,13 @@ export class TinyMce {
 				"textcolor table contextmenu paste",
 				"insert_image"
 			],
-			menubar: this.menubar,
-			statusbar: this.statusbar,
-			toolbar: this.toolbar,
-			contextmenu: this.contextmenu,
+			menubar: this.menuBar,
+			statusbar: this.statusBar,
+			toolbar: this.toolBar,
+			contextmenu: this.contextMenu,
 			//content_css: "/tinymce/editor_content.css",
 			height: this.height,
-			convert_urls: this.convert_urls,
+			convert_urls: this.convertUrls,
 			setup: editor => {
 				editor.on('init', e => {
 					this.editor = editor;
@@ -56,7 +60,7 @@ export class TinyMce {
 				editor.on('change redo undo', e => {
 					this.value = editor.getContent();
 				});
-				editor.insert_image_params = this.insert_image_params;
+				editor.insertImageParams = this.insertImageParams;
 			}
 		});
 		window.tmce = this;
