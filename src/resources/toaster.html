@@ -1,0 +1,7 @@
+<template>
+	<div style="max-width: 250px; position: absolute; right: 0; top: 0;" repeat.for="item of items">
+		<div style="background-color: #adf" show.bind="item.shown">
+			<p>${item.message}</p>
+		</div>
+	</div>
+</template>
