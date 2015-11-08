@@ -1,0 +1,27 @@
+<template>
+	<section class="au-animate">
+
+		<h1>Let's Toast!</h1>
+
+		<div class="from-group">
+
+			<div class="input-group">
+				<div class="input-group-btn">
+					<button class="btn btn-default dropdown-toggle"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${type}</button>
+					<ul class="dropdown-menu">
+						<li repeat.for="type of types">
+							<a href="#" click.delegate="$parent.type = type">${type}</a>
+						</li>
+					</ul>
+				</div>
+				<input type="text" class="form-control" value.two-way="message">
+				<span class="input-group-btn">
+					<button class="btn btn-default" click.delegate="toast()">toast!</button>
+				</span>
+			</div>
+
+		</div>
+
+	</section>
+</template>

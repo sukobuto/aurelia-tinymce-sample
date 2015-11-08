@@ -4,20 +4,33 @@ export class Toaster {
 
 	constructor() {
 		window.toaster = this;
+		setInterval(() => {
+			this.items = this.items.filter(item => item.alive);
+		}, 200);
 	}
 
-	info(message, ttl = 3000) {
-		this.items.push(new ToasterItem(message, ttl))
+	toast(type, message, ttl = 3000) {
+		let item = new ToasterItem(type, message, ttl);
+		this.items.unshift(item.show());
 	}
 
 }
 
 class ToasterItem {
 
-	constructor(message, ttl = 3000) {
+	constructor(type, message, ttl = 3000) {
+		this.type = type;
 		this.message = message;
-		this.shown = true;
-		setTimeout(() => this.shown = false, ttl);
+		this.shown = false;
+		this.alive = true;
+		this.ttl = ttl;
+	}
+
+	show() {
+		setTimeout(() => this.shown = true, 10);
+		setTimeout(() => this.shown = false, this.ttl);
+		setTimeout(() => this.alive = false, this.ttl + 500);
+		return this;
 	}
 
 }

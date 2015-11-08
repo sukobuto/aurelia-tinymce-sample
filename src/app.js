@@ -21,7 +21,8 @@ export class App {
 				moduleId: 'editor-with-params',
 				nav: true,
 				title: 'Upload Image With Params'
-			}
+			},
+			{route: ['lets-toast'], name: 'lets-toast', moduleId: 'lets-toast', nav: true, title: 'Let\'s Toast'}
 		]);
 
 		this.router = router;

@@ -1,7 +1,8 @@
 <template>
-	<div style="width: 100%; max-width: 250px; z-index: 10000; position: absolute; right: 0; top: 0;">
-		<div style="background-color: #adf" repeat.for="item of items" show.bind="item.shown">
-			<p>${item.message}</p>
+	<div class="toaster-container">
+		<div repeat.for="item of items"
+		     class="toaster-item ${item.shown ? 'toaster-item-shown' : ''} toaster-item-${item.type}">
+			<p class="toaster-message">${item.message}</p>
 		</div>
 	</div>
 </template>
