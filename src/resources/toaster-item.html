@@ -1,0 +1,9 @@
+<template>
+	<div class="toaster-item ${shown ? 'toaster-item-shown' : ''} ${closing ? 'toaster-item-closing' : ''} toaster-item-${type}">
+		<p class="toaster-message">
+			<i if.bind="icons[type]" class="fa fa-${icons[type]}"></i>
+			<span class="toaster-message-title" if.bind="title">${title}:</span>
+			${message}
+		</p>
+	</div>
+</template>

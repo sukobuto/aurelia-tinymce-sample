@@ -4,7 +4,7 @@ import {Toaster} from 'resources/toaster'
 @inject(Toaster)
 export class LetsToast {
 
-	types = ['info', 'success', 'warning', 'error'];
+	types = ['info', 'success', 'warning', 'danger'];
 	type = 'info';
 	message = "Type something!";
 
@@ -13,7 +13,7 @@ export class LetsToast {
 	}
 
 	toast() {
-		this.toaster.toast(this.type, this.message);
+		this.toaster.toast(this.type, null, this.message);
 	}
 
 }

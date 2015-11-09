@@ -1,36 +1,31 @@
+import {ToasterItem} from './toaster-item'
+
 export class Toaster {
 
 	items = [];
 
-	constructor() {
-		window.toaster = this;
-		setInterval(() => {
-			this.items = this.items.filter(item => item.alive);
-		}, 200);
+	toast(type, title, message, ttl = 3000) {
+		this.items.unshift(new ToasterItem(type, title, message, ttl));
 	}
 
-	toast(type, message, ttl = 3000) {
-		let item = new ToasterItem(type, message, ttl);
-		this.items.unshift(item.show());
+	info(title, message) {
+		this.toast('info', title, message);
 	}
 
-}
-
-class ToasterItem {
-
-	constructor(type, message, ttl = 3000) {
-		this.type = type;
-		this.message = message;
-		this.shown = false;
-		this.alive = true;
-		this.ttl = ttl;
+	success(title, message) {
+		this.toast('success', title, message);
 	}
 
-	show() {
-		setTimeout(() => this.shown = true, 10);
-		setTimeout(() => this.shown = false, this.ttl);
-		setTimeout(() => this.alive = false, this.ttl + 500);
-		return this;
+	warning(title, message) {
+		this.toast('warning', title, message);
+	}
+
+	danger(title, message) {
+		this.toast('danger', title, message);
+	}
+
+	error(message) {
+		this.toast('danger', 'Error', message);
 	}
 
 }
