@@ -5,7 +5,7 @@ export class Toaster {
 	items = [];
 
 	toast(type, title, message, ttl = 3000) {
-		this.items.unshift(new ToasterItem(type, title, message, ttl));
+		this.items.unshift(new ToasterItem(type, title, message, ttl, item => this.items.remove(item)));
 	}
 
 	info(title, message) {

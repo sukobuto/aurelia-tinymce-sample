@@ -26,7 +26,7 @@ export class ToasterItem {
 		if (this.closing) return this;
 		this.shown = false;
 		this.closing = true;
-		if (this.afterClose) setTimeout(this.afterClose, 500);
+		if (this.afterClose) setTimeout(() => this.afterClose(this), 500);
 		return this;
 	}
 
