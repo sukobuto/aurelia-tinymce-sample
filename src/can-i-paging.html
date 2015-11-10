@@ -1,0 +1,30 @@
+<template>
+	<require from="resources/pager-ui"></require>
+	<section class="au-animate">
+
+		<h1>How can I paging items on Aurelia?</h1>
+
+		<h2>Pager</h2>
+		<p>Paging with reload. For a lot of contents.</p>
+
+		<pager-ui pager.bind="pager"></pager-ui>
+		<table class="table table-striped table-condensed">
+			<tr repeat.for="item of pager.items">
+				<td>${ item.name }</td>
+				<td>${ item.times_of_three ? 'times of three' : '' }</td>
+			</tr>
+		</table>
+
+		<h2>BufferedPager</h2>
+		<p>Paging only browser-side.</p>
+
+		<pager-ui pager.bind="bufferedPager"></pager-ui>
+		<table class="table table-striped table-condensed">
+			<tr repeat.for="item of bufferedPager.items">
+				<td>${ item.name }</td>
+				<td>${ item.times_of_three ? 'times of three' : '' }</td>
+			</tr>
+		</table>
+
+	</section>
+</template>

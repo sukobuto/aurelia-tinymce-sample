@@ -1,0 +1,34 @@
+<template>
+	<ul class="pager-ui">
+		<li class="pager-summary" data-bind="visible: !loading">
+		<span class="hidden-xs">
+			<span if.bind="pager.count > 0">
+				${pager.count} 件中
+				${pager.offset + 1} - ${pager.offset + pager.items.length} 件目を表示中
+			</span>
+			<span if.bind="pager.count == 0">アイテムが登録されていません</span>
+		</span>
+		</li>
+		<li class="indicator" show.bind="pager.loading">
+			<i class="fa fa-refresh fa-spin"></i>
+		</li>
+		<li class="btn btn-xs" click.delegate="first()">
+			<i class="fa fa-step-backward"></i>
+		</li>
+		<li class="btn btn-xs" click.delegate="prev()">
+			<i class="fa fa-caret-left"></i>
+		</li>
+		<li class="pager-input">
+			<form submit.delegate="inputted()">
+				<input type="text" onfocus="this.select();" value.two-way="page"/>
+				/${pager.pages}
+			</form>
+		</li>
+		<li class="btn btn-xs" click.delegate="next()">
+			<i class="fa fa-caret-right"></i>
+		</li>
+		<li class="btn btn-xs" click.delegate="last()">
+			<i class="fa fa-step-forward"></i>
+		</li>
+	</ul>
+</template>

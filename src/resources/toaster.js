@@ -24,7 +24,7 @@ export class Toaster {
 		this.toast('danger', title, message);
 	}
 
-	error(message) {
+	error = (message) => {
 		this.toast('danger', 'Error', message);
 	}
 

@@ -45,6 +45,7 @@ System.config({
     "core-js": "npm:core-js@1.2.1",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
+    "linq": "npm:linq@3.0.5",
     "superagent": "npm:superagent@1.4.0",
     "text": "github:systemjs/plugin-text@0.0.2",
     "tinymce": "github:tinymce/tinymce-dist@4.2.7",

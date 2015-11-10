@@ -68,6 +68,9 @@ export class TinyMce {
 
 	detached() {
 		this.editor.destroy();
+		while (this.subscriptions.length) {
+			this.subscriptions.pop()();
+		}
 	}
 
 }

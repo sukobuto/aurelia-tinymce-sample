@@ -211,8 +211,9 @@ div.au-stagger {
 }
 
 .toaster-container .toaster-item.toaster-item-closing {
+    transition: opacity 1.5s, margin-top 1.5s;
     opacity: 0;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .toaster-container .toaster-item-info {
@@ -230,3 +231,40 @@ div.au-stagger {
 .toaster-container .toaster-item-danger {
     background-color: rgba(239, 50, 26, 0.87);
 }
+
+ul.pager-ui {
+    float: right;
+    height: 24px;
+    margin-bottom: 4px; }
+ul.pager-ui > li {
+    display: inline-block;
+    font-size: 14px;}
+ul.pager-ui > li.pager-input {
+    font-size: 13px;
+    margin: 4px 0;
+    color: #777;
+    border: solid 1px #aaa;
+    background-color: white;
+    padding: 0 2px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px; }
+ul.pager-ui > li.pager-input input {
+    width: 35px;
+    text-align: right;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0 2px;
+    vertical-align: baseline; }
+ul.pager-ui > li.pager-summary {
+    color: #888;
+    margin-right: 10px; }
+ul.pager-ui > li.btn {
+    margin-top: -2px;
+    cursor: pointer;
+    color: #428bca; }
+ul.pager-ui > li.btn > i {
+    margin: 0 1px;
+}
+ul.pager-ui > li.btn:hover {
+    background-color: #ddd; }

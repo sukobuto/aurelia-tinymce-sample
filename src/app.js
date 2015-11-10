@@ -22,7 +22,8 @@ export class App {
 				nav: true,
 				title: 'Upload Image With Params'
 			},
-			{route: ['lets-toast'], name: 'lets-toast', moduleId: 'lets-toast', nav: true, title: 'Let\'s Toast'}
+			{route: ['lets-toast'], name: 'lets-toast', moduleId: 'lets-toast', nav: true, title: 'Let\'s Toast'},
+			{route: ['can-i-paging'], name: 'can-i-paging', moduleId: 'can-i-paging', nav: true, title: 'Can I Paging?'}
 		]);
 
 		this.router = router;
