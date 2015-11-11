@@ -6,7 +6,6 @@ export class DummyClient {
 
 	getDummies(offset, size) {
 		return new Promise(resolve => {
-			console.log({ offset, size });
 			setTimeout(() => {
 				resolve({
 					count: 10000,

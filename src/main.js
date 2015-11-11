@@ -5,6 +5,7 @@ export function configure(aurelia) {
 		.standardConfiguration()
 		.developmentLogging()
 		.feature('feature-tinymce')
+		.feature('resources')
 		.plugin('aurelia-bs-modal');
 
 	//Uncomment the line below to enable animation.
