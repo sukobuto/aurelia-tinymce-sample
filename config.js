@@ -15,6 +15,7 @@ System.config({
   },
 
   map: {
+    "MakingSense/moment-datepicker": "github:MakingSense/moment-datepicker@1.2.0",
     "aurelia-animator-css": "github:aurelia/animator-css@0.17.0",
     "aurelia-binding": "github:aurelia/binding@0.10.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.18.0",
@@ -45,7 +46,9 @@ System.config({
     "core-js": "npm:core-js@1.2.1",
     "fetch": "github:github/fetch@0.9.0",
     "font-awesome": "npm:font-awesome@4.4.0",
+    "knockout": "npm:knockout@3.3.0",
     "linq": "npm:linq@3.0.5",
+    "moment": "npm:moment@2.10.6",
     "superagent": "npm:superagent@1.4.0",
     "text": "github:systemjs/plugin-text@0.0.2",
     "tinymce": "github:tinymce/tinymce-dist@4.2.7",
@@ -475,6 +478,9 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:knockout@3.3.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:methods@1.0.1": {
       "http": "github:jspm/nodelibs-http@1.7.1"
     },
@@ -494,6 +500,9 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:moment@2.10.6": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"

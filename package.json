@@ -56,6 +56,7 @@
   },
   "jspm": {
     "dependencies": {
+      "MakingSense/moment-datepicker": "github:MakingSense/moment-datepicker@^1.2.0",
       "aurelia-animator-css": "github:aurelia/animator-css@^0.17.0",
       "aurelia-binding": "github:aurelia/binding@^0.10.0",
       "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.18.0",
@@ -84,7 +85,9 @@
       "core-js": "npm:core-js@^0.9.4",
       "fetch": "github:github/fetch@^0.9.0",
       "font-awesome": "npm:font-awesome@^4.3.0",
+      "knockout": "npm:knockout@^3.3.0",
       "linq": "npm:linq@^3.0.5",
+      "moment": "npm:moment@^2.10.6",
       "superagent": "npm:superagent@^1.4.0",
       "text": "github:systemjs/plugin-text@^0.0.2",
       "tinymce": "github:tinymce/tinymce-dist@^4.2.7",

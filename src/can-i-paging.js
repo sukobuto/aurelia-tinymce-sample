@@ -7,16 +7,13 @@ export class CanIPaging {
 	constructor(multiObserver) {
 		window.can_i_paging = this;	// debug
 		this.client = new DummyClient();
-		this.multiObserver = multiObserver;
 		this.bufferedPager = new BufferedPager(10, []);
+		this.pager = new Pager(10);
+		multiObserver.observe(this.pager, ['offset', 'size'], () => this.load())
 	}
 
 	activate() {
 		// load in size, paging with reload.
-		this.pager = new Pager(10);
-		this.subscriptions = [
-			this.multiObserver.observe(this.pager, ['offset', 'size'], () => this.load())
-		];
 		this.load();
 		(async () => {
 			// load all at once, paging only browser-side.
