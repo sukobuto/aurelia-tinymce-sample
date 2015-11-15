@@ -93,7 +93,7 @@
       "moment": "npm:moment@^2.10.6",
       "superagent": "npm:superagent@^1.4.0",
       "text": "github:systemjs/plugin-text@^0.0.2",
-      "tinymce": "github:tinymce/tinymce-dist@^4.2.7",
+      "tinymce": "github:tinymce/tinymce-dist@^4.2.8",
       "uuid": "npm:uuid@^2.0.1"
     },
     "devDependencies": {
